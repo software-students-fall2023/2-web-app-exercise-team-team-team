@@ -1,0 +1,50 @@
+<form action="/" method="GET">
+    <label>Title: <input type="text" name="titleQ" /></label>
+    <label>Tag: <input type="text" name="tagQ" /></label>
+    <input type="submit" value="Filter" />
+  </form>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Pinned</th>
+        <th>Progress</th>
+        <th>Title</th>
+  
+        <th>
+          Due Date 
+        <a href="/?sort-by=due-date&sort-order=asc">⬆️</a>
+        <a href="/?sort-by=due-date&sort-order=desc">⬇️</a>
+        </th>
+  
+        <th>
+          Priority 
+        <a href="/?sort-by=priority&sort-order=asc">⬆️</a>
+        <a href="/?sort-by=priority&sort-order=desc">⬇️</a>
+        </th>
+        
+        <th>Tags</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+        <tr>
+          <td>
+            {% if task.pinned %}
+              <img src="/public/img/pin.png" alt="Pinned" width="30" height="30" />
+            {% endif %}
+          </td>
+          <td>{{ task.progress }}</td>
+          <td>{{ task.title }}</td>
+          <td>{{ task.dueDate }}</td>
+          <td>{{ task.priority }}</td>
+          <td>
+            {% for tag in task.tags %}
+              <button>{{ tag }}</button>
+            {% endfor %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
