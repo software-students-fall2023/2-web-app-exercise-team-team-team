@@ -67,6 +67,14 @@ def home():
     return render_template('home.html', tasks=tasks)
 
 
+@app.route('/change_view')
+def change_view():
+
+    tasks = tasks_collection.find()
+
+    return render_template('change_view.html', tasks=tasks)
+
+
 @app.route('/add', methods=['GET', 'POST'])
 def add_task():
     if request.method == 'POST':
