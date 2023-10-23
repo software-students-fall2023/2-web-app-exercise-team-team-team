@@ -74,14 +74,13 @@ img {
 }
 
 .action-buttons {
-    display: flex;
     gap: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 
-.add-task-btn, .delete-btn, .home-btn,.submit-btn,.task-result,.view-btn, .search-btn{
+.add-task-btn, .delete-btn, .home-btn,.submit-btn,.view-btn, .search-btn,.edit-btn, .edit-task-btn{
 
     padding: 10px 20px;
     text-decoration: none;
@@ -89,11 +88,33 @@ img {
     color: white;
 }
 
+.action-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-buttons-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
 .add-task-btn {
     background-color: #007BFF;
 }
 
 .add-task-btn:hover {
+    background-color: #0056b3;
+}
+.edit-task-btn {
+    background-color: #007BFF;
+}
+
+.edit-task-btn:hover {
     background-color: #0056b3;
 }
 
@@ -150,6 +171,8 @@ img {
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    color: black;
+    font-size: 18px;
     position: relative;
 }
 
