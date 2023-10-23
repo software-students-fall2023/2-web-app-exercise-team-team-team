@@ -18,7 +18,7 @@
             <img src="/public/img/pin.png" alt="Pinned" width="30" height="30">
             {% endif %}
             <div class="task-title">{{ task.title }} {{ task.priority }}</div>
-            <div class="task-description">{{ task.progress }} {{ task.due_date }}</div>
+            <div class="task-description">{{ task.progress }} {{ task.due_date }} {{ tag }}</div>
         </div>
         {% for tag in task.tags %}
                     <span class="tag">{{ tag }}</span>
