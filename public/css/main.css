@@ -111,6 +111,38 @@ img {
     background-color: darkred;
 }
 
+.submit-btn {
+    background-color: #4CAF50; 
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+.task-result {
+    background-color: #256629;
+}
+
+.view-btn {
+    background-color: rgb(248, 248, 121);
+}
+
+.view-btn:hover {
+    background-color: rgb(200, 200, 99);
+}
+
+.task {
+    width: 48%;
+    margin: 2%;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+
 .view-btn {
     background-color: rgb(255, 175, 27);
 }
