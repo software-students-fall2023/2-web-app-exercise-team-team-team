@@ -80,7 +80,9 @@ img {
     margin-bottom: 20px;
 }
 
-.add-task-btn, .delete-btn, .home-btn, .view-btn {
+
+.add-task-btn, .delete-btn, .home-btn,.submit-btn,.task-result,.view-btn {
+
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -110,25 +112,17 @@ img {
 .delete-btn:hover {
     background-color: darkred;
 }
+
 .submit-btn {
     background-color: #4CAF50; 
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
 }
 
 .submit-btn:hover {
     background-color: #45a049;
 }
 .task-result {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
     background-color: #f9f9f9;
 }
-
 
 .view-btn {
     background-color: rgb(248, 248, 121);
@@ -150,6 +144,27 @@ img {
     position: relative;
 }
 
+.view-btn {
+    background-color: rgb(248, 248, 121);
+}
+
+.view-btn:hover {
+    background-color: rgb(200, 200, 99);
+}
+
+.task {
+    width: 48%;
+    margin: 2%;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+
 .task-title {
     font-weight: bold;
 }
@@ -157,3 +172,4 @@ img {
 .task-description {
     margin-top: 10px;
 }
+
