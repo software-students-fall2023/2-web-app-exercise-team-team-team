@@ -81,7 +81,7 @@ img {
 }
 
 
-.add-task-btn, .delete-btn, .home-btn,.submit-btn,.task-result,.view-btn {
+.add-task-btn, .delete-btn, .home-btn,.submit-btn,.task-result,.view-btn, .search-btn{
 
     padding: 10px 20px;
     text-decoration: none;
@@ -94,6 +94,14 @@ img {
 }
 
 .add-task-btn:hover {
+    background-color: #0056b3;
+}
+
+.search-btn {
+    background-color: #007BFF;
+}
+
+.search-btn:hover {
     background-color: #0056b3;
 }
 
