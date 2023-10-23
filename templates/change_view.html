@@ -19,10 +19,10 @@
             {% endif %}
             <div class="task-title">{{ task.title }} {{ task.priority }}</div>
             <div class="task-description">{{ task.progress }} {{ task.due_date }}</div>
+            {% for tag in task.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
         </div>
-        {% for tag in task.tags %}
-                    <span class="tag">{{ tag }}</span>
-                {% endfor %}
     </div>
     {% endfor %}
     <tbody>
@@ -30,7 +30,8 @@
 <div class="action-buttons">
     <a href="/add" class="add-task-btn">Add New Task</a>
     <a href="/delete" class="delete-btn">Delete Tasks</a>
-    <a href="/home" class="view-btn">Change View Style</a>
+        <a href="/search" class="search-btn">Search Tasks</a>
+    <a href="/" class="view-btn">Change View Style</a>
 </div>
 
 
