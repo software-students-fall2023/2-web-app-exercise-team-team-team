@@ -139,7 +139,29 @@ def delete_task(task_id):
     except Exception as e:
         print(f"An error occurred: {e}")
         return "Error deleting task.", 500
+        
+@app.route('/search', methods=['GET', 'POST'])
+def search_task():
+    if request.method == 'POST':
+        title = request.form['title']
+        progress = request.form['progress']
+        pinned = True if request.form['pinned'] == 'true' else False
+        priority = int(request.form['priority'])
 
+        query = {}
+        if title:
+            query['title'] = {'$regex': title, '$options': 'i'}
+        if progress:
+            query['progress'] = {'$regex': progress, '$options': 'i'}
+        if pinned:
+            query['pinned'] = pinned
+        if priority:
+            query['priority'] = priority
+
+        tasks = tasks_collection.find(query)
+        return render_template('search_results.html', tasks=tasks)
+
+    return render_template('search_task.html')
 
 @app.route('/public/<path:filename>')
 def custom_static(filename):

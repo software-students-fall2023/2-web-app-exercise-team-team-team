@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/public/css/main.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+{% for task in tasks %}
+    <div class="task-result"> <!-- Added a class here for styling -->
+        <h2>{{ task.title }}</h2>
+        <p>{{ task.description }}</p>
+        <p>{{ task.progress }}</p>
+        <p>{{ task.due_date }}</p>
+        <p>{{ task.priority }}</p>
+    </div>
+{% endfor %}
+
+</body>
+</html>

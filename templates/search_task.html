@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Tasks</title>
+    <link rel="stylesheet" href="/public/css/main.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+<form action="{{ url_for('search_task') }}" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title"><br>
+    
+    <label for="progress">Progress:</label>
+    <input type="text" id="progress" name="progress"><br>
+    
+    <label for="pinned">Pinned:</label>
+    <select id="pinned" name="pinned">
+        <option value="true">True</option>
+        <option value="false">False</option>
+    </select><br>
+    
+    <label for="priority">Priority:</label>
+    <input type="number" id="priority" name="priority"><br>
+    
+    <input type="submit" value="Search" class="submit-btn"> <!-- Added a class here for styling -->
+</form>
+
+</body>
+</html>
