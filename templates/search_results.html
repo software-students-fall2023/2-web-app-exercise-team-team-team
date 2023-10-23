@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <title>Search Results</title>
     <link rel="stylesheet" href="/public/css/main.css"> 
+
 </head>
 <body>
 
 {% for task in tasks %}
     <div class="task-result"> 
+
         <h2>{{ task.title }}</h2>
         <p>{{ task.description }}</p>
         <p>{{ task.progress }}</p>

@@ -111,7 +111,7 @@ img {
     background-color: darkred;
 }
 .submit-btn {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; 
     color: white;
     border: none;
     cursor: pointer;
@@ -121,7 +121,6 @@ img {
 .submit-btn:hover {
     background-color: #45a049;
 }
-
 .task-result {
     border: 1px solid #ddd;
     padding: 15px;
