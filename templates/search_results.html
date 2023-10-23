@@ -4,23 +4,52 @@
     <meta charset="UTF-8">
     <title>Search Results</title>
     <link rel="stylesheet" href="/public/css/main.css"> 
-
 </head>
 <body>
 <div class="action-buttons">
     <a href="/" class="home-btn">Home</a>
 </div>
 
-{% for task in tasks %}
-    <div class="task-result"> 
-
-        <h2>{{ task.title }}</h2>
-        <p>{{ task.description }}</p>
-        <p>{{ task.progress }}</p>
-        <p>{{ task.due_date }}</p>
-        <p>{{ task.priority }}</p>
-    </div>
-{% endfor %}
+<table>
+    <thead>
+        <tr>
+            <th>Pinned</th>
+            <th>Progress</th>
+            <th>Title</th>
+            <th>
+                Due Date
+                <a href="/?sort-by=due-date&sort-order=asc">⬆️</a>
+                <a href="/?sort-by=due-date&sort-order=desc">⬇️</a>
+            </th>
+            <th>
+                Priority
+                <a href="/?sort-by=priority&sort-order=asc">⬆️</a>
+                <a href="/?sort-by=priority&sort-order=desc">⬇️</a>
+            </th>
+            <th>Tags</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+            <tr>
+                <td>
+                    {% if task.pinned %}
+                        <img src="/public/img/pin.png" alt="Pinned" width="30" height="30">
+                    {% endif %}
+                </td>
+                <td>{{ task.progress }}</td>
+                <td>{{ task.title }}</td>
+                <td>{{ task.due_date }}</td>
+                <td>{{ task.priority }}</td>
+                <td>
+                    {% for tag in task.tags %}
+                        <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 </body>
 </html>

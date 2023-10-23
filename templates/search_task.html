@@ -3,30 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Search Tasks</title>
-    <link rel="stylesheet" href="/public/css/main.css"> 
-
+    <link rel="stylesheet" href="/public/css/main.css">
+</head>
 <body>
 <div class="action-buttons">
     <a href="/" class="home-btn">Home</a>
 </div>
 <form action="{{ url_for('search_task') }}" method="POST">
     <label for="title">Title:</label>
-    <input type="text" id="title" name="title"><br>
-    
+    <input type="text" id="title" name="title" required><br>
+
     <label for="progress">Progress:</label>
-    <input type="text" id="progress" name="progress"><br>
-    
+    <input type="text" id="progress" name="progress" required><br>
+
     <label for="pinned">Pinned:</label>
-    <select id="pinned" name="pinned">
+    <select id="pinned" name="pinned" required>
         <option value="true">True</option>
         <option value="false">False</option>
     </select><br>
-    
+
     <label for="priority">Priority:</label>
-    <input type="number" id="priority" name="priority"><br>
-    
-    <input type="submit" value="Search" class="submit-btn"> 
-  
+    <input type="number" id="priority" name="priority" required><br>
+
+    <input type="submit" value="Search" class="submit-btn">
 </form>
 
 </body>

@@ -27,11 +27,16 @@
     {% endfor %}
     <tbody>
 
-<div class="action-buttons">
-    <a href="/add" class="add-task-btn">Add New Task</a>
-    <a href="/delete" class="delete-btn">Delete Tasks</a>
+<div class="action-buttons-container">
+    <div class="action-buttons-row">
+        <a href="/add" class="add-task-btn">Add New Task</a>
+        <a href="/edit" class="edit-task-btn">Edit Task</a>
+        <a href="/delete" class="delete-btn">Delete Tasks</a>
+    </div>
+    <div class="action-buttons-row">
         <a href="/search" class="search-btn">Search Tasks</a>
-    <a href="/" class="view-btn">Change View Style</a>
+        <a href="/" class="view-btn">Change View Style</a>
+    </div>
 </div>
 
 
