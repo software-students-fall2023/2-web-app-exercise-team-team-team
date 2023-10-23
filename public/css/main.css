@@ -80,7 +80,7 @@ img {
     margin-bottom: 20px;
 }
 
-.add-task-btn, .delete-btn, .home-btn {
+.add-task-btn, .delete-btn, .home-btn, .view-btn {
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -110,6 +110,7 @@ img {
 .delete-btn:hover {
     background-color: darkred;
 }
+
 
 .view-btn {
     background-color: rgb(248, 248, 121);
