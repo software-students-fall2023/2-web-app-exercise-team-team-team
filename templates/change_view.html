@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Overview</title>
+    <link rel="stylesheet" href="/public/css/main.css">
+
+</head>
+<body>
+
+<h1>Task List</h1>
+
+{% for task in tasks %}
+    <div class="task-list">
+        <div class="task">
+            {% if task.pinned %}
+            <img src="/public/img/pin.png" alt="Pinned" width="30" height="30">
+            {% endif %}
+            <div class="task-title">{{ task.title }} {{ task.priority }}</div>
+            <div class="task-description">{{ task.progress }} {{ task.due_date }}</div>
+        </div>
+        {% for tag in task.tags %}
+                    <span class="tag">{{ tag }}</span>
+                {% endfor %}
+    </div>
+    {% endfor %}
+    <tbody>
+
+<div class="action-buttons">
+    <a href="/add" class="add-task-btn">Add New Task</a>
+    <a href="/delete" class="delete-btn">Delete Tasks</a>
+    <a href="/home" class="view-btn">Change View Style</a>
+</div>
+
+
+</body>
+</html>

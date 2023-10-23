@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Overview</title>
+    <title>Delete Tasks</title>
     <link rel="stylesheet" href="/public/css/main.css">
-
 </head>
 <body>
 
-<h1>Task List</h1>
+<h1>Delete Tasks</h1>
+
+
+<div class="action-buttons">
+    <a href="/" class="home-btn">Home</a>
+</div>
 
 <table>
     <thead>
@@ -17,17 +21,10 @@
         <th>Pinned</th>
         <th>Progress</th>
         <th>Title</th>
-        <th>
-            Due Date
-            <a href="/?sort-by=due-date&sort-order=asc">⬆️</a>
-            <a href="/?sort-by=due-date&sort-order=desc">⬇️</a>
-        </th>
-        <th>
-            Priority
-            <a href="/?sort-by=priority&sort-order=asc">⬆️</a>
-            <a href="/?sort-by=priority&sort-order=desc">⬇️</a>
-        </th>
+        <th>Due Date</th>
+        <th>Priority</th>
         <th>Tags</th>
+        <th>Action</th> <!-- Added a new column for "Delete" action -->
     </tr>
     </thead>
     <tbody>
@@ -47,17 +44,14 @@
                     <span class="tag">{{ tag }}</span>
                 {% endfor %}
             </td>
+            <td>
+                <!-- Delete action -->
+                <a href="{{ url_for('delete_task', task_id=task._id) }}" class="delete-btn">Delete</a>
+            </td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
-
-<div class="action-buttons">
-    <a href="/add" class="add-task-btn">Add New Task</a>
-    <a href="/delete" class="delete-btn">Delete Tasks</a>
-    <a href="/change_view" class="view-btn">Change View Style</a>
-</div>
-
 
 </body>
 </html>

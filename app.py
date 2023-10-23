@@ -1,16 +1,57 @@
-from flask import Flask, render_template, request,send_from_directory, redirect, url_for
+from functools import wraps
+
+from flask import Flask, render_template, request, send_from_directory, redirect, url_for, session
 from bson.objectid import ObjectId
 from datetime import datetime
-from db import get_tasks_collection
-
+from db import get_tasks_collection, insert_user, get_user_from_db
+# comment out all stuff related to login/register
 app = Flask(__name__, static_folder='public')
-
+# app.secret_key = '059763067224cfd60c9260a509447c10ac25b5a6562f75ed'
 
 # Connect to db.py
 tasks_collection = get_tasks_collection()
 
 
+# # check if user is already in session
+# @app.route('/')
+# def index():
+#     if 'user_id' in session:
+#         return redirect(url_for('home'))
+#     return redirect(url_for('login'))
+
+
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     if request.method == 'POST':
+#         username = request.form['username']
+#         password = request.form['password']
+#         user = get_user_from_db(username, password)
+#         if user:
+#             session['user_id'] = user['_id']  # Store user ID in the session
+#             return redirect(url_for('home'))
+#         else:
+#             return "Invalid credentials", 401
+#     return render_template('login.html')
+#
+
+# @app.route('/logout')
+# def logout():
+#     session.pop('user_id', None)
+#     return redirect(url_for('login'))
+
+
+# def login_required(f):
+#     @wraps(f)
+#     def decorated_function(*args, **kwargs):
+#         if 'user_id' not in session:
+#             return redirect(url_for('login', next=request.url))
+#         return f(*args, **kwargs)
+#
+#     return decorated_function
+
+
 @app.route('/')
+# @login_required
 def home():
     # Default sorting criteria
     sort_by = "due_date"
@@ -58,32 +99,46 @@ def add_task():
 
     return render_template('add_task.html')
 
-@app.route('/acc_register', methods=['GET', 'POST'])
-def acc_register():
-    if request.method == 'POST':
 
-        username = request.form['username']
-        password = request.form['password']
-        email = request.form['email']
-        try:
-            result = insert_user(username, password, email)
-            
-            if result:
-                #registration success
-                return "Account registered successfully!"
-            else:
-                #error during registration
-                return "Error registering account.", 500
+# @app.route('/register', methods=['GET', 'POST'])
+# def acc_register():
+#     if request.method == 'POST':
+#
+#         username = request.form['username']
+#         password = request.form['password']
+#         email = request.form['email']
+#         try:
+#             result = insert_user(username, password, email)
+#
+#             if result:
+#                 # registration success
+#                 return redirect(url_for('login'))
+#
+#             else:
+#                 # error during registration
+#                 return "Error registering account.", 500
+#
+#         except Exception as e:
+#             print(f"An error occurred: {e}")
+#             return "Error inputing account information.", 500
+#
+#     return render_template('acc_register.html')
+#
 
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return "Error inputing account information.", 500
+@app.route('/delete', methods=['GET'])
+def display_delete_page():
+    tasks = tasks_collection.find()
+    return render_template('delete_task.html', tasks=tasks)
 
-        
-        return redirect(url_for('home'))
 
-   
-    return render_template('acc_register.html')
+@app.route('/delete/<task_id>', methods=['GET'])
+def delete_task(task_id):
+    try:
+        tasks_collection.delete_one({"_id": ObjectId(task_id)})
+        return redirect(url_for('display_delete_page'))
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return "Error deleting task.", 500
 
 
 @app.route('/public/<path:filename>')
@@ -92,4 +147,4 @@ def custom_static(filename):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5002, debug=True)
+    app.run(host='0.0.0.0', port=47218, debug=True)
