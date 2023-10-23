@@ -13,3 +13,8 @@ See instructions. Delete this line and place the Product Vision Statement here.
 ## Task boards
 
 [Link to task board](https://github.com/orgs/software-students-fall2023/projects/28/views/2)
+
+## Instruction 
+Use docker run --name mongodb_dockerhub -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -d mongo:latest to run a mongodb.
+use pipenv to make a virtual environment. Make sure pymongo and flask is in the environment.
+
