@@ -10,7 +10,8 @@ Innovating daily planner application built for ambitious modern individual; inte
 
 ## Task boards
 
-[Link to task board](https://github.com/orgs/software-students-fall2023/projects/28/views/2)
+[Link to task board 1](https://github.com/orgs/software-students-fall2023/projects/28)
+[Link to task board 2](https://github.com/orgs/software-students-fall2023/projects/63)
 
 ## Instruction 
 Use docker run --name mongodb_dockerhub -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -d mongo:latest to run a mongodb.
