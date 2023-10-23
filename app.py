@@ -174,12 +174,14 @@ def search_task():
         query = {}
         if title:
             query['title'] = {'$regex': title, '$options': 'i'}
-        if progress:
+        else if progress:
             query['progress'] = {'$regex': progress, '$options': 'i'}
-        if pinned:
+        else if pinned:
             query['pinned'] = pinned
-        if priority:
+        else if priority:
             query['priority'] = priority
+        else
+            print("An error occurred")
 
         tasks = tasks_collection.find(query)
         return render_template('search_results.html', tasks=tasks)
