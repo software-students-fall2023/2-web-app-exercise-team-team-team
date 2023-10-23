@@ -1,12 +1,13 @@
 from functools import wraps
 
-from flask import Flask, render_template, request, send_from_directory, redirect, url_for, session
+from flask import Flask, render_template, request, send_from_directory, redirect, url_for, session, flash
 from bson.objectid import ObjectId
 from datetime import datetime
 from db import get_tasks_collection, insert_user, get_user_from_db
+
 # comment out all stuff related to login/register
 app = Flask(__name__, static_folder='public')
-# app.secret_key = '059763067224cfd60c9260a509447c10ac25b5a6562f75ed'
+app.secret_key = '059763067224cfd60c9260a509447c10ac25b5a6562f75ed'
 
 # Connect to db.py
 tasks_collection = get_tasks_collection()
@@ -69,7 +70,6 @@ def home():
 
 @app.route('/change_view')
 def change_view():
-
     tasks = tasks_collection.find()
 
     return render_template('change_view.html', tasks=tasks)
@@ -147,7 +147,7 @@ def delete_task(task_id):
     except Exception as e:
         print(f"An error occurred: {e}")
         return "Error deleting task.", 500
-        
+
 
 @app.route('/search', methods=['GET', 'POST'])
 def search_task():
@@ -174,6 +174,48 @@ def search_task():
 
     return render_template('search_task.html')
 
+
+@app.route('/edit')
+def edit_tasks_list():
+    tasks = tasks_collection.find()  # Assuming you have a tasks_collection object connected to your database
+    return render_template('edit.html', tasks=tasks)
+
+
+@app.route('/edit_task/<task_id>', methods=['GET', 'POST'])  # added '<task_id>' dynamic part to the route
+def edit_task(task_id):
+    task = tasks_collection.find_one({"_id": ObjectId(task_id)})
+
+    if not task:
+        flash('Task not found', 'danger')
+        return redirect(url_for('home'))  # or wherever you list your tasks
+
+    if request.method == 'POST':
+        # Gather data from the form
+        title = request.form.get('title')
+        description = request.form.get('description')
+        priority = request.form.get('priority')
+        due_date = request.form.get('due_date')
+        tags = request.form.get('tags').split(',')
+        progress = request.form.get('progress')
+        pinned = True if request.form.get('pinned') == 'true' else False
+
+        # Update the task in the database
+        tasks_collection.update_one({"_id": ObjectId(task_id)}, {
+            "$set": {
+                "title": title,
+                "description": description,
+                "priority": priority,
+                "due_date": due_date,
+                "tags": tags,
+                "progress": progress,
+                "pinned": pinned
+            }
+        })
+
+        flash('Task updated successfully!', 'success')
+        return redirect(url_for('home'))
+
+    return render_template('edit_task.html', task=task)
 
 
 @app.route('/public/<path:filename>')

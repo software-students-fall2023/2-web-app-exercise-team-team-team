@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Overview</title>
+    <title>Edit Tasks</title>
     <link rel="stylesheet" href="/public/css/main.css">
-
 </head>
 <body>
 
-<h1>Task List</h1>
+<h1>Edit Tasks</h1>
+
+<div class="action-buttons">
+    <a href="/" class="home-btn">Home</a>
+</div>
 
 <table>
     <thead>
@@ -17,17 +20,10 @@
         <th>Pinned</th>
         <th>Progress</th>
         <th>Title</th>
-        <th>
-            Due Date
-            <a href="/?sort-by=due-date&sort-order=asc">⬆️</a>
-            <a href="/?sort-by=due-date&sort-order=desc">⬇️</a>
-        </th>
-        <th>
-            Priority
-            <a href="/?sort-by=priority&sort-order=asc">⬆️</a>
-            <a href="/?sort-by=priority&sort-order=desc">⬇️</a>
-        </th>
+        <th>Due Date</th>
+        <th>Priority</th>
         <th>Tags</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -47,24 +43,13 @@
                     <span class="tag">{{ tag }}</span>
                 {% endfor %}
             </td>
+            <td>
+                <a href="{{ url_for('edit_task', task_id=task._id) }}" class="edit-task-btn">Edit</a>
+            </td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
-
-<div class="action-buttons-container">
-    <div class="action-buttons-row">
-        <a href="/add" class="add-task-btn">Add New Task</a>
-        <a href="/edit" class="edit-task-btn">Edit Task</a>
-        <a href="/delete" class="delete-btn">Delete Tasks</a>
-    </div>
-    <div class="action-buttons-row">
-        <a href="/search" class="search-btn">Search Tasks</a>
-        <a href="/change_view" class="view-btn">Change View Style</a>
-    </div>
-</div>
-
-
 
 </body>
 </html>

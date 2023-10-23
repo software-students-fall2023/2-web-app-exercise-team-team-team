@@ -18,8 +18,7 @@
 
     <main>
         <section>
-            <form class="task-form" action="/edit" method="POST">
-
+            <form class="task-form" action="{{ url_for('edit_task', task_id=task._id) }}" method="POST">
                 <fieldset>
                     <legend>Basic Info</legend>
 
