@@ -1,10 +1,8 @@
 # Web Application Exercise
 
-A little exercise to build a web application following an agile development process. See the [instructions](instructions.md) for more detail.
-
 ## Product vision statement
 
-See instructions. Delete this line and place the Product Vision Statement here.
+Innovating daily planner application built for ambitious modern individual; integrating list and calendar views enriching with a prioritization feature, our platform assists users to efficiently record and plan their everyday tasks and events in today's bustling environment.
 
 ## User stories
 
