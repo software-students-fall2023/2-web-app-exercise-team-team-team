@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="/public/css/main.css">
+</head>
+
+<body>
+
+    <h1>Edit Task</h1>
+
+    <div class="action-buttons">
+        <a href="/" class="home-btn">Home</a>
+    </div>
+
+    <main>
+        <section>
+            <form class="task-form" action="/edit" method="POST">
+
+                <fieldset>
+                    <legend>Basic Info</legend>
+
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" required value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description"></textarea>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Details</legend>
+
+                    <div class="form-group">
+                        <label for="priority">Priority:</label>
+                        <select id="priority" name="priority" required>
+                            <!-- The selected attribute can be added server-side to match current priority -->
+                            <option value="1">1 (Least urgent)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Most urgent)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="due_date">Due Date:</label>
+                        <input type="date" id="due_date" name="due_date" required value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tags">Tags (comma separated):</label>
+                        <input type="text" id="tags" name="tags" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="progress">Progress:</label>
+                        <select id="progress" name="progress" required>
+                            <!-- The selected attribute can be added server-side to match current progress -->
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="done">Done</option>
+                        </select>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Options</legend>
+
+                    <div class="form-group">
+                        <label>Pinned:</label>
+                        <!-- The checked attribute can be added server-side to match current pinned status -->
+                        <input type="radio" id="pinned-yes" name="pinned" value="true" required>
+                        <label for="pinned-yes">Yes</label>
+                        <input type="radio" id="pinned-no" name="pinned" value="false" required>
+                        <label for="pinned-no">No</label>
+                    </div>
+
+                </fieldset>
+
+                <div class="form-group">
+                    <button type="submit">Save Changes</button>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+</body>
+
+</html>
