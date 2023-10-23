@@ -2,7 +2,7 @@
 
 ## Product vision statement
 
-Innovating daily planner application built for ambitious modern individual; integrating list and calendar views enriching with a prioritization feature, our platform assists users to efficiently record and plan their everyday tasks and events in today's bustling environment.
+Innovating daily planner application built for ambitious modern individual; integrating list and sticky notes views enriching with a prioritization feature, our platform assists users to efficiently record and plan their everyday tasks and events in today's bustling environment.
 
 ## User stories
 
