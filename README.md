@@ -15,5 +15,5 @@ Innovating daily planner application built for ambitious modern individual; inte
 
 ## Instruction 
 Use docker run --name mongodb_dockerhub -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -d mongo:latest to run a mongodb.
-use pipenv to make a virtual environment. Make sure pymongo and flask is in the environment.
+run pipenv install --dev and then pipenv shell and then python3 app.py.
 
