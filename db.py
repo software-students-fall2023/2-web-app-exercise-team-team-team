@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import bcrypt
 
-client = MongoClient('mongodb://admin:secret@127.0.0.1:27017/')
+client = MongoClient('mongodb://admin1321:secret1321@127.0.0.1:27007/')
 
 db = client['task_board']
 tasks_collection = db['tasks']
