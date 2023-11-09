@@ -14,6 +14,6 @@ Innovating daily planner application built for ambitious modern individual; inte
 [Link to task board 2](https://github.com/orgs/software-students-fall2023/projects/63)
 
 ## Instruction 
-Use docker run --name mongodb_dockerhub -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret -d mongo:latest to run a mongodb.
+Use docker run --name mongodb_dockerhub1321 -p 27007:27017 -e MONGO_INITDB_ROOT_USERNAME=admin1321 -e MONGO_INITDB_ROOT_PASSWORD=secret1321 -d mongo:latest to run a mongodb.
 run pipenv install --dev and then pipenv shell and then python3 app.py.
 
